@@ -3,19 +3,19 @@ import traceback
 from liveMan import DouyinLiveWebFetcher, get_logger
 
 
-def monitor_live_room(live_id):
+def monitor_live_room(_live_id):
     """
     单个直播间的监控任务（线程执行的核心函数）
     """
-    logger = get_logger(live_id)
+    logger = get_logger(_live_id)
     try:
         # 初始化直播间抓取器并执行任务
-        room = DouyinLiveWebFetcher(live_id, logger)
+        room = DouyinLiveWebFetcher(_live_id, logger)
         room.get_room_status()
         room.start()  # 假设 start() 是阻塞式任务（如持续监控），若非阻塞可按需调整
     except Exception as e:
         # 捕获线程内异常并记录
-        logger.error(f"直播间执行报错, {live_id}: {str(e)}")
+        logger.error(f"直播间执行报错, {_live_id}: {str(e)}")
         logger.error(traceback.format_exc())
 
 
@@ -27,6 +27,22 @@ if __name__ == '__main__':
         "186331227245",
         "349657363582",
         "23968056366",
+        "252389686228",
+        "11858974839",
+        "220506899033",
+        "589959159975",
+        "932476672609",
+        "719136762870",
+        "604149758091",
+        "599675992849",
+        "4874232505",
+        "139028859310",
+        "35355979057",
+        "62154220363",
+        "310539894467",
+        "282430486196",
+        "959823974763",
+        "372258197395",
     ]
 
     # 1. 创建线程列表，存储所有线程对象
